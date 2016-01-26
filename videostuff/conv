@@ -1,0 +1,16 @@
+#Takes raw video in segments, merges them and then encodes to mp4 format
+#1st argument is the output filename including .mp4, 2nd argument is 
+
+inputdir = "/home/kamen/Dropbox/Stuff for Keith & Kamen/avis"
+outputdir = "/home/kamen/Dropbox/Stuff for Keith & Kamen/output"
+outraw = "~/tmp/tmp.avi"
+
+#$2 = $outraw
+
+cd $inputdir
+
+time mencoder -o $outraw -ovc raw -oac copy -idx scene1.avi scene2.avi scene3.avi scene4.avi scene5.avi scene6.avi scene7.avi scene8.avi scene9.avi scene10.avi scene11.avi
+
+time mencoder -o "$outputdir"/$1 -ovc x264 -x264encopts pass=1:preset=veryslow:fast_pskip=0:tune=animation:frameref=15:bitrate=1200:threads=auto $outraw
+
+time mencoder -o "$outputdir"/$1 -ovc x264 -x264encopts pass=2:preset=veryslow:fast_pskip=0:tune=animation:frameref=15:bitrate=1200:threads=auto $outraw
