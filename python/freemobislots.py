@@ -10,7 +10,7 @@ data = json.loads(raw)
 
 faves = { '0024 Hornby & Pender': '15',
           '0099 Vancouver Art Gallery - North Plaza': '67',
-          '0040 Cardero & Davie':'28'}
+          '0048 Comox & Broughton':'32'}
 
 for station,stationPos in faves.items():
     mrk = int(stationPos)
@@ -18,7 +18,7 @@ for station,stationPos in faves.items():
     stationName = str(data['result'][mrk]['name'])
     onlineStatus = (data['result'][mrk]['operative'])
     if station == stationName and onlineStatus == True:
-        print("{} ({}) [{}] | {} ".format(station,stationName,onlineStatus,emptySlots))
+        print("{} | {} free slots".format(stationName,emptySlots))
     else:
         pass
 
