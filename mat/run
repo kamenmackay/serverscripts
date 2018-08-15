@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path to heapdump>"
+    exit
+fi
+
+docker run --rm --name=mat -v $(pwd):$(pwd) mat $(pwd)/"$1"
