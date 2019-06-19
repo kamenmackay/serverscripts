@@ -16,11 +16,12 @@ now = datetime.datetime.now()
 currentdate = now.strftime('%m%d%Y')
 bupath = influxbackuppath + "/" + currentdate
 # Make the below into a function
-if (os.path.exists(bupath)):
-  print(bupath + " already exists so proceeding...")
-else:
-  os.mkdir( bupath, 755 );
-  print("Path is created")
+def crtdir(dur)
+  if (os.path.exists(bupath)):
+    print(bupath + " already exists so proceeding...")
+  else:
+    os.mkdir( bupath, 755 );
+    print("Path is created")
 
 client = InfluxDBClient(host='10.1.2.16', port=8086)
 dbs = client.get_list_database()
